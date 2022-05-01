@@ -58,8 +58,8 @@ void NormalMath(){
 		else if(dau=='^')
 		{
 			int somu;
-			gotoxy(1,3);cout<<"               ";
-			cin>>somu;i--;
+			gotoxy(1,3);cin>>somu;i--;
+			gotoxy(1,3);cout<<" ";
 			if(daut=='+')kq=kq-so[i];
 			else if(daut=='-')kq=kq+so[i];
 			else if(daut=='*')kq=kq/so[i];
