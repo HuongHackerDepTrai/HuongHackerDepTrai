@@ -18,7 +18,7 @@ void gotoxy(int x, int y){
 void NormalMath(){
 	system("cls");
 	double so[255],kq=0;
-	char dau,daut='+';
+	char dau,daut='+';int n=0;
 	gotoxy(40,1);cout<<"    _";
 	gotoxy(40,2);cout<<"V: Vx";
 	gotoxy(40,3);cout<<"^: x^?";
@@ -26,34 +26,39 @@ void NormalMath(){
 	gotoxy(40,5);cout<<"S: sin(x)";
 	gotoxy(40,6);cout<<"T: tan(x)";
 	gotoxy(40,7);cout<<"L: log(x)";
-	gotoxy(0,0);cin>>so[0];kq=so[0];
+	gotoxy(1,1);cin>>so[0];kq=so[0];
 	for(int i=1;i<255;i++)
 	{
-		dau=getche();
-		cout<<endl;
+		gotoxy(1,2);cout<<"     ";
+		gotoxy(1,2);cin>>dau;
 		if(dau=='+')
 		{
-			cin>>so[i];
+			gotoxy(1,1);cout<<"               ";
+			gotoxy(1,1);cin>>so[i];
 			kq=kq+so[i];
 		}
 		else if(dau=='-')
 		{
-			cin>>so[i];
+			gotoxy(1,1);cout<<"               ";
+			gotoxy(1,1);cin>>so[i];
 			kq=kq-so[i];
 		}
 		else if(dau=='*')
 		{
-			cin>>so[i];
+			gotoxy(1,1);cout<<"               ";
+			gotoxy(1,1);cin>>so[i];
 			kq=kq*so[i];
 		}
 		else if(dau=='/')
 		{
-			cin>>so[i];
+			gotoxy(1,1);cout<<"               ";
+			gotoxy(1,1);cin>>so[i];
 			kq=kq/so[i];
 		}
 		else if(dau=='^')
 		{
 			int somu;
+			gotoxy(1,3);cout<<"               ";
 			cin>>somu;i--;
 			if(daut=='+')kq=kq-so[i];
 			else if(daut=='-')kq=kq+so[i];
@@ -131,10 +136,11 @@ void NormalMath(){
 			else if(daut=='/')kq=kq/so[i];
 		}
 		else if(dau=='='){
-		cout<<"\n\t\t\t\t\t\t\t\t\t"<<kq;
-		getche();
-		break;
+			cout<<"\t\t\t\t\t\t\t\t\t"<<kq;
+			getche();
+			break;
 		}
+		daut=dau;
 	}
 }
 void TTPhanSo(){	
@@ -368,6 +374,7 @@ int main(){
 		gotoxy(2,9);cout<<"3. Equation";
 		gotoxy(2,10);cout<<"4. Code";
 		gotoxy(2,11);cout<<"5. Help";
+		gotoxy(2,12);cout<<"6. Exit";
 		char a=getche();
 		if(a=='1') Math();
 		else if(a=='2') SD();
@@ -380,6 +387,7 @@ int main(){
 			gotoxy(8,6);cout<<"|";
 			gotoxy(8,7);cout<<"V";
 			gotoxy(1,8);cout<<"https://github.com/HuongHackerDepTrai/HuongHackerDepTrai/blob/main/main.cpp";
+			getche();
 		}
 		else if(a=='5')
 		{
@@ -391,6 +399,8 @@ int main(){
 			gotoxy(8,7);cout<<"V";
 			gotoxy(1,8);cout<<"";
 		}
+		else if(a=='6'||a==27)
+			exit(1);
 	}while(1);
     return 0;
 }
