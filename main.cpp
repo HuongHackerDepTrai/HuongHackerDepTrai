@@ -18,6 +18,7 @@ void gotoxy(int x, int y){
 void NormalMath(){
 	system("cls");
 	double so[255],kq=0;
+	gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
 	char dau,daut='+';int n=0;
 	gotoxy(40,1);cout<<"    _";
 	gotoxy(40,2);cout<<"V: Vx";
@@ -26,40 +27,40 @@ void NormalMath(){
 	gotoxy(40,5);cout<<"S: sin(x)";
 	gotoxy(40,6);cout<<"T: tan(x)";
 	gotoxy(40,7);cout<<"L: log(x)";
-	gotoxy(1,1);cin>>so[0];kq=so[0];
+	gotoxy(3,1);cout<<"X [1] = ";cin>>so[0];kq=so[0];
 	for(int i=1;i<255;i++)
 	{
-		gotoxy(1,2);cout<<"     ";
-		gotoxy(1,2);cin>>dau;
+		gotoxy(3,2);cout<<"     ";
+		gotoxy(3,2);cin>>dau;
 		if(dau=='+')
 		{
-			gotoxy(1,1);cout<<"               ";
-			gotoxy(1,1);cin>>so[i];
+			gotoxy(3,1);cout<<"               ";
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
 			kq=kq+so[i];
 		}
 		else if(dau=='-')
 		{
-			gotoxy(1,1);cout<<"               ";
-			gotoxy(1,1);cin>>so[i];
+			gotoxy(3,1);cout<<"               ";
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
 			kq=kq-so[i];
 		}
 		else if(dau=='*')
 		{
-			gotoxy(1,1);cout<<"               ";
-			gotoxy(1,1);cin>>so[i];
+			gotoxy(3,1);cout<<"               ";
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
 			kq=kq*so[i];
 		}
 		else if(dau=='/')
 		{
-			gotoxy(1,1);cout<<"               ";
-			gotoxy(1,1);cin>>so[i];
+			gotoxy(3,1);cout<<"               ";
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
 			kq=kq/so[i];
 		}
 		else if(dau=='^')
 		{
 			int somu;
-			gotoxy(1,3);cin>>somu;i--;
-			gotoxy(1,3);cout<<" ";
+			gotoxy(3,3);cin>>somu;i--;
+			gotoxy(3,3);cout<<" ";
 			if(daut=='+')kq=kq-so[i];
 			else if(daut=='-')kq=kq+so[i];
 			else if(daut=='*')kq=kq/so[i];
@@ -136,7 +137,7 @@ void NormalMath(){
 			else if(daut=='/')kq=kq/so[i];
 		}
 		else if(dau=='='){
-			cout<<"\t\t\t\t\t\t\t\t\t"<<kq;
+			gotoxy(5,2);cout<<kq;
 			getche();
 			break;
 		}
@@ -225,7 +226,6 @@ void MHPS(){
 	while(1)
 	{
 		system("cls");
-		gotoxy(40,1);cout<<"Version: 1.1.5";
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -243,7 +243,6 @@ void Math(){
 	do
 	{
 		system("cls");
-		gotoxy(40,1);cout<<"Version: 1.1.5";
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -284,7 +283,6 @@ void SD(){
 	while(1)
 	{
 		system("cls");
-		gotoxy(40,1);cout<<"Version: 1.1.5";
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -339,7 +337,6 @@ void phuongtrinh(){
 	do
 	{
 		system("cls");
-		gotoxy(40,1);cout<<"Version: 1.1.5";
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -361,25 +358,88 @@ void phuongtrinh(){
 		else if(a==27)break;
 	}while(1);
 }
+void DoDaiKhoiLuong(){
+	system("cls");
+	gotoxy(4,0);cout<<"1: ton\t2: quintal\t3: nest\t4: kg\t5: hm\t6: dam\t7: g";
+	gotoxy(4,1);cout<<"1: km\t2: hm\t\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
+	double so,kq;int dvd[2];
+	gotoxy(1,2);cin>>so;
+	dvd[0]=getche();
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	dvd[1]=getche();kq=so*pow(10,dvd[1]-dvd[0]);
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	gotoxy(1,3);cout<<" = "<<kq;
+	getche();
+}
+void DienTich(){
+	system("cls");
+	gotoxy(4,0);cout<<"     2\t     2\t      2\t    2\t     2\t     2\t     2";
+	gotoxy(4,1);cout<<"1: km\t2: hm\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
+	double so,kq;int dvd[2];
+	gotoxy(1,2);cin>>so;
+	dvd[0]=getche();
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	dvd[1]=getche();kq=so*pow(100,dvd[1]-dvd[0]);
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	gotoxy(1,3);cout<<" = "<<kq;
+	getche();
+}
+void TheTich(){
+	system("cls");
+	gotoxy(4,0);cout<<"     3\t     3\t      3\t    3\t     3\t     3\t     3";
+	gotoxy(4,1);cout<<"1: km\t2: hm\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
+	double so,kq;int dvd[2];
+	gotoxy(1,2);cin>>so;
+	dvd[0]=getche();
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	dvd[1]=getche();kq=so*pow(1000,dvd[1]-dvd[0]);
+	gotoxy(1,2);cout<<"                  \n ";
+	gotoxy(1,2);cout<<so;
+	gotoxy(1,3);cout<<" = "<<kq;
+	getche();
+}
+void MHDDV(){
+	do
+	{
+		system("cls");
+		gotoxy(3,3);cout<<"--------------";
+		gotoxy(3,4);cout<<"| CALCULATOR |";
+		gotoxy(3,5);cout<<"--------------";
+		gotoxy(2,7);cout<<"1. Length, mass";
+		gotoxy(2,8);cout<<"2. Acreage";
+		gotoxy(2,9);cout<<"3. Volume";
+		char a=getche();
+		if(a=='1') DoDaiKhoiLuong();
+		else if(a=='2') DienTich();
+		else if(a=='3') TheTich();
+		else if(a==27) break;
+	}while(1);
+}
 int main(){
 	do
 	{
 		system("cls");
-		gotoxy(40,1);cout<<"Version: 1.1.5";
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
 		gotoxy(2,7);cout<<"1. Normal calculate";
 		gotoxy(2,8);cout<<"2. Compare ; True/False";
 		gotoxy(2,9);cout<<"3. Equation";
-		gotoxy(2,10);cout<<"4. Code";
-		gotoxy(2,11);cout<<"5. Help";
-		gotoxy(2,12);cout<<"6. Exit";
+		gotoxy(2,10);cout<<"4. Change unit";
+		gotoxy(2,11);cout<<"5. Code";
+		gotoxy(2,12);cout<<"6. Help";
+		gotoxy(2,13);cout<<"7. Exit";
 		char a=getche();
 		if(a=='1') Math();
 		else if(a=='2') SD();
 		else if(a=='3') phuongtrinh();
-		else if(a=='4'){
+		else if(a=='4') MHDDV();
+		else if(a=='5'){
 			system("cls");
 			gotoxy(4,3);cout<<"Copy link";
 			gotoxy(8,4);cout<<"|";
@@ -389,7 +449,7 @@ int main(){
 			gotoxy(1,8);cout<<"https://github.com/HuongHackerDepTrai/HuongHackerDepTrai/blob/main/main.cpp";
 			getche();
 		}
-		else if(a=='5')
+		else if(a=='6')
 		{
 			system("cls");
 			gotoxy(4,3);cout<<"Copy link";
@@ -399,8 +459,7 @@ int main(){
 			gotoxy(8,7);cout<<"V";
 			gotoxy(1,8);cout<<"";
 		}
-		else if(a=='6'||a==27)
-			exit(1);
+		else if(a=='7'||a==27)exit(1);
 	}while(1);
     return 0;
 }
