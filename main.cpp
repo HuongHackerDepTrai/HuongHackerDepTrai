@@ -432,7 +432,7 @@
 			gotoxy(2,9);cout<<"3. Equation";
 			gotoxy(2,10);cout<<"4. Change unit";
 			gotoxy(2,11);cout<<"5. Code";
-			gotoxy(2,13);cout<<"6. Exit";
+			gotoxy(2,12);cout<<"6. Exit";
 			char a=getche();
 			if(a=='1') Math();
 			else if(a=='2') SD();
@@ -445,7 +445,7 @@
 				gotoxy(8,5);cout<<"|";
 				gotoxy(8,6);cout<<"|";
 				gotoxy(8,7);cout<<"V";
-				gotoxy(1,8);cout<<"	";
+				gotoxy(1,8);cout<<"https://github.com/HuongHackerDepTrai/HuongHackerDepTrai/blob/main/main.cpp";
 				gotoxy(4,9);cout<<"App: DEV C/C++";
 				gotoxy(4,10);cout<<"Language: C++";
 				getche();
