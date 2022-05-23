@@ -15,135 +15,82 @@
 		CursorPosition.Y = y;
 		SetConsoleCursorPosition(console, CursorPosition);
 	}
-	void NormalMath(){
-		system("cls");
-		double so[255],kq=0;
-		gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
-		char dau,daut='+';int n=0;
-		gotoxy(40,1);cout<<"    _";
-		gotoxy(40,2);cout<<"V: Vx";
-		gotoxy(40,3);cout<<"^: x^?";
-		gotoxy(40,4);cout<<"C: cos(x)";
-		gotoxy(40,5);cout<<"S: sin(x)";
-		gotoxy(40,6);cout<<"T: tan(x)";
-		gotoxy(40,7);cout<<"L: log(x)";
-		gotoxy(3,1);cout<<"X [1] = ";cin>>so[0];kq=so[0];
-		for(int i=1;i<255;i++)
-		{
-			gotoxy(3,2);cout<<"     ";
-			gotoxy(3,2);cin>>dau;
-			if(dau=='+')
-			{
-				gotoxy(3,1);cout<<"               ";
-				gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
-				kq=kq+so[i];
+void NormalMath(){
+	system("cls");
+	double so[255],kq=1;
+	gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
+	char dau;
+	int d[254];
+	gotoxy(40,1);cout<<"    _";
+	gotoxy(40,2);cout<<"V: Vx";
+	gotoxy(40,3);cout<<"^: x^?";
+	gotoxy(40,4);cout<<"C: cos(x)";
+	gotoxy(40,5);cout<<"S: sin(x)";
+	gotoxy(40,6);cout<<"T: tan(x)";
+	gotoxy(40,7);cout<<"L: log(x)";
+	gotoxy(3,1);cout<<"X [1] = ";cin>>so[0];
+	for(int i=1;i<255;i++)
+	{
+		gotoxy(3,2);cout<<"   ";
+		gotoxy(3,2);cin>>dau;
+		if((dau=='*'||dau=='/')&&i==1)kq=so[0];
+		gotoxy(11,1);cout<<"                ";
+		d[i-1]=dau;
+		if(dau=='+'){
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
+		}
+		else if(dau=='-'){
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
+		}
+		else if(dau=='*'){
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];kq=kq*so[i];
+			if(d[i-2]==43||d[i-2]==45)kq=kq*so[i-1];
+		}
+		else if(dau=='/'){
+			gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];kq=kq/so[i];
+			if(d[i-2]==43||d[i-2]==45)kq=kq/so[i-1];
+		}
+		else if(dau=='^'){
+			int somu;
+			gotoxy(3,3);cin>>somu;i--;
+			gotoxy(3,3);cout<<"   ";
+			so[i]=pow(so[i],somu);
+		}
+		else if(dau=='V'||dau=='v'){
+			i--;
+			so[i]=sqrt(so[i]);
+		}
+		else if(dau=='L'||dau=='L'){
+			i--;
+			so[i]=log(so[i]);
+		}
+		else if(dau=='C'||dau=='c'){
+			i--;
+			so[i]=cos(so[i]);
+		}
+		else if(dau=='S'||dau=='s'){
+			i--;
+			so[i]=sin(so[i]);
+		}
+		else if(dau=='T'||dau=='t'){
+			i--;
+			so[i]=tan(so[i]);
+		}
+		else if(dau=='='){
+			if(d[0]==43)kq=kq+so[0];
+			else if(d[0]==45)kq=so[0]-kq;
+			for(int j=0;j<i;j++){
+				if(d[j]==43&&d[j+1]!=42&&d[j+1]!=47)kq=kq+so[j];
+				else if(d[j]==45&&d[j+1]!=42&&d[j+1]!=47)kq=kq-so[j];
+				else if(d[j]==43&&j==i-1)kq=kq+so[i];
+				else if(d[j]==45&&j==i-1)kq=kq-so[i];
 			}
-			else if(dau=='-')
-			{
-				gotoxy(3,1);cout<<"               ";
-				gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
-				kq=kq-so[i];
-			}
-			else if(dau=='*')
-			{
-				gotoxy(3,1);cout<<"               ";
-				gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
-				kq=kq*so[i];
-			}
-			else if(dau=='/')
-			{
-				gotoxy(3,1);cout<<"               ";
-				gotoxy(3,1);cout<<"X ["<<i+1<<"] = ";cin>>so[i];
-				kq=kq/so[i];
-			}
-			else if(dau=='^')
-			{
-				int somu;
-				gotoxy(3,3);cin>>somu;i--;
-				gotoxy(3,3);cout<<" ";
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=pow(so[i],somu);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='V')
-			{
-				i--;
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=sqrt(so[i]);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='L'||dau=='L')
-			{
-				i--;
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=log(so[i]);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='C'||dau=='c')
-			{
-				i--;
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=cos(so[i]);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='S'||dau=='s')
-			{
-				i--;
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=sin(so[i]);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='T'||dau=='t')
-			{
-				i--;
-				if(daut=='+')kq=kq-so[i];
-				else if(daut=='-')kq=kq+so[i];
-				else if(daut=='*')kq=kq/so[i];
-				else if(daut=='/')kq=kq*so[i];
-				so[i]=cos(so[i]);
-				if(daut=='+')kq=kq+so[i];
-				else if(daut=='-')kq=kq-so[i];
-				else if(daut=='*')kq=kq*so[i];
-				else if(daut=='/')kq=kq/so[i];
-			}
-			else if(dau=='='){
-				gotoxy(5,2);cout<<kq;
-				getche();
-				break;
-			}
-			daut=dau;
+			gotoxy(5,2);cout<<kq;
+			getche();
+			break;
 		}
 	}
+}
 	void TTPhanSo(){	
 		system("cls");
 		double tu[255],mau[255],kq=0;
@@ -193,20 +140,6 @@
 			}
 		}
 	}
-	void PSSoSanh(){
-		system("cls");
-		double tu[2],mau[2];
-		gotoxy(2,3);cout<<"-----";
-		gotoxy(2,2);cin>>tu[0];
-		gotoxy(2,4);cin>>mau[0];
-		gotoxy(10,3);cout<<"-----";
-		gotoxy(10,2);cin>>tu[1];
-		gotoxy(10,4);cin>>mau[1];
-		if(tu[0]*mau[1]>tu[1]*mau[0]){gotoxy(8,3);cout<<">";}
-		else if(tu[0]*mau[1]<tu[1]*mau[0]){gotoxy(8,3);cout<<"<";}
-		else {gotoxy(8,3);cout<<"=";}
-		gotoxy(1,5);getche();
-	}
 	void RutGon(){
 		system("cls");
 		int tu,mau;
@@ -230,12 +163,10 @@
 			gotoxy(3,4);cout<<"| CALCULATOR |";
 			gotoxy(3,5);cout<<"--------------";
 			gotoxy(2,7);cout<<"1. Calculate";
-			gotoxy(2,8);cout<<"2. Compare";
-			gotoxy(2,9);cout<<"3. Compact";
+			gotoxy(2,8);cout<<"2. Compact";
 			char a=getche();
 			if(a=='1')TTPhanSo();
-			else if(a=='2')PSSoSanh();
-			else if(a=='3')RutGon();
+			else if(a=='2')RutGon();
 			else if(a==27)break;
 		}
 	}
@@ -253,46 +184,6 @@
 			else if(a=='2') MHPS();
 			else if(a==27)break;
 		}while(1);
-	}
-	void SoSanh(){
-		system("cls");
-		double a,b;
-		gotoxy(1,1);cout<<"Import a: ";cin>>a;
-		gotoxy(1,2);cout<<"Import b: ";cin>>b;
-		system("cls");
-		char dau;
-		if(a>b)dau='>';
-		else if(a<b)dau='<';
-		else dau='=';
-		gotoxy(1,1);cout<<a<<" "<<dau<<" "<<b;
-		getche();
-	}
-	void DungSai(){
-		system("cls");
-		double a,b;
-		char dau;
-		gotoxy(2,2);cin>>a;
-		gotoxy(3,3);dau=getche();cout<<endl;
-		gotoxy(2,4);cin>>b;
-		system("cls");
-		if((a>b&&dau=='>')||(a<b&&dau=='<')||(a==b&&dau=='=')){gotoxy(3,3);cout<<"True";}
-		else{gotoxy(3,3);cout<<"False";}
-		getche();
-	}
-	void SD(){
-		while(1)
-		{
-			system("cls");
-			gotoxy(3,3);cout<<"--------------";
-			gotoxy(3,4);cout<<"| CALCULATOR |";
-			gotoxy(3,5);cout<<"--------------";
-			gotoxy(2,7);cout<<"1. Compare";
-			gotoxy(2,8);cout<<"2. True/False";
-			char a=getche();
-			if(a=='1') SoSanh();
-			else if(a=='2') DungSai();
-			if(a==27)break;
-		}
 	}
 	void PhuongTrinhBac2(){
 		system("cls");
@@ -323,103 +214,6 @@
 	    }
 	    getche();
 	}
-	void PhuongTrinhBac3(){
-		system("cls");
-		double a,b,c,d,delta,k;
-		cout<<"Import a: ";cin>>a;
-		cout<<"Import b: ";cin>>b;
-		cout<<"Import c: ";cin>>c;
-		cout<<"Import d: ";cin>>d;
-		delta=pow(b,2)-3*a*c;
-		k=(9*a*b*c-2*pow(b,3)-27*pow(a,2)*d)/(2*sqrt(pow(abs(delta),3)));
-	}
-	void phuongtrinh(){
-		do
-		{
-			system("cls");
-			gotoxy(3,3);cout<<"--------------";
-			gotoxy(3,4);cout<<"| CALCULATOR |";
-			gotoxy(3,5);cout<<"--------------";
-			gotoxy(2,7);cout<<"Choose equation 2 ~ 4: ";
-			char a=getche();
-			if(a=='4')
-			{
-				system("cls");
-				gotoxy(5,5);cout<<"COMING SOON!";
-				getche();
-			}
-			else if(a=='2')PhuongTrinhBac2();
-			else if(a=='3')
-			{
-				system("cls");
-				gotoxy(5,5);cout<<"COMING SOON!";
-				getche();
-			}
-			else if(a==27)break;
-		}while(1);
-	}
-	void DoDaiKhoiLuong(){
-		system("cls");
-		gotoxy(4,0);cout<<"1: ton\t2: quintal\t3: nest\t4: kg\t5: hm\t6: dam\t7: g";
-		gotoxy(4,1);cout<<"1: km\t2: hm\t\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
-		double so,kq;int dvd[2];
-		gotoxy(1,2);cin>>so;
-		dvd[0]=getche();
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		dvd[1]=getche();kq=so*pow(10,dvd[1]-dvd[0]);
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		gotoxy(1,3);cout<<" = "<<kq;
-		getche();
-	}
-	void DienTich(){
-		system("cls");
-		gotoxy(4,0);cout<<"     2\t     2\t      2\t    2\t     2\t     2\t     2";
-		gotoxy(4,1);cout<<"1: km\t2: hm\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
-		double so,kq;int dvd[2];
-		gotoxy(1,2);cin>>so;
-		dvd[0]=getche();
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		dvd[1]=getche();kq=so*pow(100,dvd[1]-dvd[0]);
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		gotoxy(1,3);cout<<" = "<<kq;
-		getche();
-	}
-	void TheTich(){
-		system("cls");
-		gotoxy(4,0);cout<<"     3\t     3\t      3\t    3\t     3\t     3\t     3";
-		gotoxy(4,1);cout<<"1: km\t2: hm\t3: dam\t4: m\t5: dm\t6: cm\t7: mm";
-		double so,kq;int dvd[2];
-		gotoxy(1,2);cin>>so;
-		dvd[0]=getche();
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		dvd[1]=getche();kq=so*pow(1000,dvd[1]-dvd[0]);
-		gotoxy(1,2);cout<<"                  \n ";
-		gotoxy(1,2);cout<<so;
-		gotoxy(1,3);cout<<" = "<<kq;
-		getche();
-	}
-	void MHDDV(){
-		do
-		{
-			system("cls");
-			gotoxy(3,3);cout<<"--------------";
-			gotoxy(3,4);cout<<"| CALCULATOR |";
-			gotoxy(3,5);cout<<"--------------";
-			gotoxy(2,7);cout<<"1. Length, mass";
-			gotoxy(2,8);cout<<"2. Acreage";
-			gotoxy(2,9);cout<<"3. Volume";
-			char a=getche();
-			if(a=='1') DoDaiKhoiLuong();
-			else if(a=='2') DienTich();
-			else if(a=='3') TheTich();
-			else if(a==27) break;
-		}while(1);
-	}
 	int main(){
 		do
 		{
@@ -428,17 +222,13 @@
 			gotoxy(3,4);cout<<"| CALCULATOR |";
 			gotoxy(3,5);cout<<"--------------";
 			gotoxy(2,7);cout<<"1. Normal calculate";
-			gotoxy(2,8);cout<<"2. Compare ; True/False";
-			gotoxy(2,9);cout<<"3. Equation";
-			gotoxy(2,10);cout<<"4. Change unit";
-			gotoxy(2,11);cout<<"5. Code";
-			gotoxy(2,12);cout<<"6. Exit";
+			gotoxy(2,8);cout<<"2. Equation";
+			gotoxy(2,9);cout<<"3. Code";
+			gotoxy(2,10);cout<<"4. Exit";
 			char a=getche();
 			if(a=='1') Math();
-			else if(a=='2') SD();
-			else if(a=='3') phuongtrinh();
-			else if(a=='4') MHDDV();
-			else if(a=='5'){
+			else if(a=='2') PhuongTrinhBac2();
+			else if(a=='3'){
 				system("cls");
 				gotoxy(4,3);cout<<"Copy link";
 				gotoxy(8,4);cout<<"|";
@@ -450,7 +240,7 @@
 				gotoxy(4,10);cout<<"Language: C++";
 				getche();
 			}
-			else if(a=='6'||a==27)exit(1);
+			else if(a=='4'||a==27)exit(1);
 		}while(1);
 	    return 0;
 	}
