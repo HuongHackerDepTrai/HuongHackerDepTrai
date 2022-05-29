@@ -305,6 +305,30 @@ void Game1(){
 	}
 	getche();
 }
+void Game2(){
+	system("cls");
+	srand(time(NULL));
+	int so1,so2,dau,kq,diem;
+	char d;
+	gotoxy(5,1);cout<<"Score:";
+	for(int i=0;;i++){
+		so1=rand()%1000+1;so2=rand()%1000+1;dau=rand()%2;
+		if(dau==0)d='+';
+		else d='-';
+		gotoxy(12,1);cout<<i;
+		gotoxy(2,2);cout<<so1;
+		gotoxy(2,3);cout<<d<<"  =";
+		gotoxy(2,4);cout<<so2;
+		gotoxy(6,3);cout<<"        ";
+		gotoxy(6,3);cin>>kq;
+		if(d=='+'){if(kq!=so1+so2){diem=i-1;break;}}
+		else if(d=='-'){if(kq!=so1-so2){diem=i-1;break;}}
+	}
+	system("cls");
+	gotoxy(1,1);cout<<"\\\\\\\\\\\\\\\\\\/////////";
+	gotoxy(1,2);cout<<"> YOUR SCORE: "<<diem<<" <";gotoxy(18,2);cout<<"<";
+	gotoxy(1,3);cout<<"/////////\\\\\\\\\\\\\\\\\\";getche();
+}
 void MHMinigames(){
 	do
 	{
@@ -314,10 +338,12 @@ void MHMinigames(){
 		gotoxy(3,5);cout<<"--------------";
 		gotoxy(2,7);cout<<"O: Random";
 		gotoxy(2,8);cout<<"1. Number guessing game";
-		int t=rand()%1+1;
+		gotoxy(2,9);cout<<"2. Math solver";
+		int t=rand()%2+1;
 		char a=getche();
 		if(a=='o'||a=='O')a=t+48;
 		if(a=='1') Game1();
+		else if(a=='2') Game2();
 		else if(a==27)break;
 	}while(1);
 }
