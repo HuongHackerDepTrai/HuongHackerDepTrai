@@ -248,8 +248,9 @@ void PhuongTrinhBac3(){
 			else if(abs(k)>1)cout<<"The equation has a solution: x = ";cout<<((sqrt(delta)*abs(k))/(3*a))*(pow(abs(k)+sqrt(pow(k,2)-1),1/3)+(pow(abs(k)-sqrt(pow(k,2)-1),1/3))-b/(3*a))<<endl;
 		}
 	}
+	getche();
 }
-MHPhuongTrinh(){
+void MHPhuongTrinh(){
 	do
 	{
 		system("cls");
@@ -260,7 +261,7 @@ MHPhuongTrinh(){
 		char a=getche();
 		if(a=='2') PhuongTrinhBac2();
 		else if(a=='3') PhuongTrinhBac3();
-		else if(a==27)exit(1);
+		else if(a==27)break;
 	}while(1);
 }
 void MHToanHoc(){
