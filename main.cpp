@@ -290,7 +290,7 @@ void Game1(){
 		if(n>sodoan){gotoxy(3,3);cout<<"                            ";gotoxy(3,3);cout<<"Robot's number > your number";}
 		else if(n<sodoan){gotoxy(3,3);cout<<"                            ";gotoxy(3,3);cout<<"Robot's number < your number";}
 		else if(sodoan==n){
-			gotoxy(3,3);cout<<"                            ";
+			gotoxy(3,3);cout<<"                                                         ";
 			gotoxy(3,3);cout<<"\\\\\\\\\\|/////";
 			gotoxy(3,4);cout<<"> YOU WIN <";
 			gotoxy(3,5);cout<<"/////|\\\\\\\\\\";
@@ -302,6 +302,7 @@ void Game1(){
 		gotoxy(3,3);cout<<"\\\\\\\\\\\\//////";
 		gotoxy(3,4);cout<<"> YOU LOSE <";
 		gotoxy(3,5);cout<<"//////\\\\\\\\\\\\";
+		gotoxy(3,6);cout<<"Robot's number: "<<n;
 	}
 	getche();
 }
@@ -312,21 +313,22 @@ void Game2(){
 	char d;
 	gotoxy(5,1);cout<<"Score:";
 	for(int i=0;;i++){
-		so1=rand()%1000+1;so2=rand()%1000+1;dau=rand()%2;
+		so1=rand()%2001-1000;so2=rand()%2001-1000;dau=rand()%2;
 		if(dau==0)d='+';
 		else d='-';
 		gotoxy(12,1);cout<<i;
 		gotoxy(2,2);cout<<so1;
-		gotoxy(2,3);cout<<d<<"  =";
+		gotoxy(2,3);cout<<d;gotoxy(8,3);cout<<"=";
 		gotoxy(2,4);cout<<so2;
-		gotoxy(6,3);cout<<"        ";
-		gotoxy(6,3);cin>>kq;
-		if(d=='+'){if(kq!=so1+so2){diem=i-1;break;}}
-		else if(d=='-'){if(kq!=so1-so2){diem=i-1;break;}}
+		gotoxy(10,3);cout<<"        ";
+		gotoxy(10,3);cin>>kq;
+		if(d=='+'){if(kq!=so1+so2){diem=i;break;}}
+		else if(d=='-'){if(kq!=so1-so2){diem=i;break;}}
 	}
 	system("cls");
+	gotoxy(1,1);cout<<"                                                                  ";
 	gotoxy(1,1);cout<<"\\\\\\\\\\\\\\\\\\/////////";
-	gotoxy(1,2);cout<<"> YOUR SCORE: "<<diem<<" <";gotoxy(18,2);cout<<"<";
+	gotoxy(1,2);cout<<"> YOUR SCORE: "<<diem<<"  ";gotoxy(18,2);cout<<"<";
 	gotoxy(1,3);cout<<"/////////\\\\\\\\\\\\\\\\\\";getche();
 }
 void MHMinigames(){
