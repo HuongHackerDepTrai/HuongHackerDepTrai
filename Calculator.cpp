@@ -94,50 +94,51 @@ void NormalMath(){
 void TTPhanSo(){	
 	system("cls");
 	system("color f2");
-	double tu[255],mau[255],kq=0,h=0;
-	int n=2,d[127];char dau;
-	gotoxy(n,3);cout<<"-----";
-	gotoxy(n,2);cin>>tu[0];
-	gotoxy(n,4);cin>>mau[0];
-	double TT=1,TM=1;
+	double tu[255],mau[255];char dau;
+	gotoxy(1,3);cout<<"X [1]";
+	gotoxy(7,3);cout<<"-------";
+	gotoxy(7,2);cin>>tu[0];
+	gotoxy(7,4);cin>>mau[0];
+	double TT=tu[0],TM=mau[0];
 	for(int i=1;i<255;i++)
 	{
-		gotoxy(n+(i)*8-2,3);cin>>dau;
-		if((dau=='*'||dau=='/')&&i==1){TT=tu[0];TM=mau[0];};
-		d[i-1]=dau;
+		gotoxy(1,3);cout<<"X ["<<i+1<<"]";
+		gotoxy(15,3);cin>>dau;
+		gotoxy(7,2);cout<<"        ";
+		gotoxy(7,4);cout<<"        ";
 		if(dau=='+'){
-			gotoxy(n+i*8,3);cout<<"-----";
-			gotoxy(n+i*8,2);cin>>tu[i];
-			gotoxy(n+i*8,4);cin>>mau[i];
+			gotoxy(7,3);cout<<"-------";
+			gotoxy(7,2);cin>>tu[i];
+			gotoxy(7,4);cin>>mau[i];
 			TT=tu[i]*TM+TT*mau[i];
 			TM=TM*mau[i];
 		}
 		else if(dau=='-'){
-			gotoxy(n+i*8,3);cout<<"-----";
-			gotoxy(n+i*8,2);cin>>tu[i];
-			gotoxy(n+i*8,4);cin>>mau[i];
+			gotoxy(7,3);cout<<"-------";
+			gotoxy(7,2);cin>>tu[i];
+			gotoxy(7,4);cin>>mau[i];
 			TT=tu[i]*TM-TT*mau[i];
 			TM=TM*mau[i];
 		}
 		else if(dau=='*'){
-			gotoxy(n+i*8,3);cout<<"-----";
-			gotoxy(n+i*8,2);cin>>tu[i];
-			gotoxy(n+i*8,4);cin>>mau[i];
+			gotoxy(7,3);cout<<"-------";
+			gotoxy(7,2);cin>>tu[i];
+			gotoxy(7,4);cin>>mau[i];
 			TT=TT*tu[i];
 			TM=TM*mau[i];
 		}
 		else if(dau=='/'){
-			gotoxy(n+i*8,3);cout<<"-----";
-			gotoxy(n+i*8,2);cin>>tu[i];
-			gotoxy(n+i*8,4);cin>>mau[i];
+			gotoxy(7,3);cout<<"-------";
+			gotoxy(7,2);cin>>tu[i];
+			gotoxy(7,4);cin>>mau[i];
 			TT=TT*mau[i];
 			TM=TM*tu[i];
 		}
 		else if(dau=='=')
 		{
-			gotoxy(n+i*8,3);cout<<"-----";
-			gotoxy(n+i*8,2);cout<<TT;
-			gotoxy(n+i*8,4);cout<<TM;
+			gotoxy(17,3);cout<<"-------";
+			gotoxy(17,2);cout<<TT;
+			gotoxy(17,4);cout<<TM;
 			getche();
 			break;
 		}
