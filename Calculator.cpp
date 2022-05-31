@@ -318,30 +318,6 @@ void Game1(){
 	}
 	getche();
 }
-void Game2(){
-	system("cls");
-	system("color f6");
-	srand(time(NULL));
-	int so1,so2,dau,kq,diem=0;
-	int NN;
-	char d;
-	gotoxy(5,1);cout<<"Score:";
-	for(int i=0;;i++){
-		so1=rand()%2001-1000;so2=rand()%2001-1000;dau=rand()%2;NN=rand()%5+1;
-		if(dau==0)d='+';
-		else d='-';
-		gotoxy(12,1);cout<<i;
-		gotoxy(2,2);cout<<so1<<" "<<d<<" "<<so2<<" =               ";
-		gotoxy(2,2);cout<<so1<<" "<<d<<" "<<so2<<" = ";cin>>kq;
-		if(d=='+'){if(kq!=so1+so2){diem=i;break;}}
-		else if(d=='-'){if(kq!=so1-so2){diem=i;break;}}
-	}
-	system("cls");
-	gotoxy(1,1);cout<<"                                                                  ";
-	gotoxy(1,1);cout<<"\\\\\\\\\\\\\\\\\\/////////";
-	gotoxy(1,2);cout<<"> YOUR SCORE: "<<diem<<"  ";gotoxy(18,2);cout<<"<";
-	gotoxy(1,3);cout<<"/////////\\\\\\\\\\\\\\\\\\";getche();
-}
 void MHMinigames(){
 	do
 	{
@@ -350,14 +326,9 @@ void MHMinigames(){
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| Mini games |";
 		gotoxy(3,5);cout<<"--------------";
-		gotoxy(2,7);cout<<"O: Random";
-		gotoxy(2,8);cout<<"1. Number guessing game";
-		gotoxy(2,9);cout<<"2. Math solver";
-		int t=rand()%2+1;
+		gotoxy(2,7);cout<<"1. Number guessing game";
 		char a=getche();
-		if(a=='o'||a=='O')a=t+48;
 		if(a=='1') Game1();
-		else if(a=='2') Game2();
 		else if(a==27)break;
 	}while(1);
 }
