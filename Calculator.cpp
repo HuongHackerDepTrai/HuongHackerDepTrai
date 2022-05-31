@@ -17,6 +17,7 @@
 	}
 void NormalMath(){
 	system("cls");
+	system("color f1");
 	double so[255],kq,ns[254];
 	gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
 	char dau,sl=0;
@@ -92,6 +93,7 @@ void NormalMath(){
 }
 void TTPhanSo(){	
 	system("cls");
+	system("color f2");
 	double tu[255],mau[255],kq=0,h=0;
 	int n=2,d[127];char dau;
 	gotoxy(n,3);cout<<"-----";
@@ -143,6 +145,7 @@ void TTPhanSo(){
 }
 void RutGon(){
 	system("cls");
+	system("color f5");
 	int tu,mau;
 	gotoxy(2,3);cout<<"-----";
 	gotoxy(2,2);cin>>tu;
@@ -160,6 +163,7 @@ void MHPS(){
 	while(1)
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -175,6 +179,7 @@ void Math(){
 	do
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -188,6 +193,7 @@ void Math(){
 }
 void PhuongTrinhBac2(){
 	system("cls");
+	system("color fd");
     double a,b,c,delta,kq;
     cout<<"Import a: ";cin>>a;
     cout<<"Import b: ";cin>>b;
@@ -216,6 +222,7 @@ void PhuongTrinhBac2(){
 }
 void PhuongTrinhBac3(){
 	system("cls");
+	system("color f8");
 	double a,b,c,d,delta,k,kq;
     cout<<"Import a: ";cin>>a;
     cout<<"Import b: ";cin>>b;
@@ -254,6 +261,7 @@ void MHPhuongTrinh(){
 	do
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -268,6 +276,7 @@ void MHToanHoc(){
 	do
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| CALCULATOR |";
 		gotoxy(3,5);cout<<"--------------";
@@ -281,6 +290,7 @@ void MHToanHoc(){
 }
 void Game1(){
 	system("cls");
+	system("color f4");
 	srand(time(NULL));
 	int n=rand()%100+1;
 	int sodoan;bool w=false;
@@ -309,6 +319,7 @@ void Game1(){
 }
 void Game2(){
 	system("cls");
+	system("color f6");
 	srand(time(NULL));
 	int so1,so2,dau,kq,diem;
 	char d;
@@ -336,6 +347,7 @@ void MHMinigames(){
 	do
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"--------------";
 		gotoxy(3,4);cout<<"| Mini games |";
 		gotoxy(3,5);cout<<"--------------";
@@ -354,6 +366,7 @@ int main(){
 	do
 	{
 		system("cls");
+		system("color f0");
 		gotoxy(3,3);cout<<"-----------------";
 		gotoxy(3,4);cout<<"| Program study |";
 		gotoxy(3,5);cout<<"-----------------";
@@ -366,6 +379,7 @@ int main(){
 		else if(a=='2') MHMinigames();
 		else if(a=='3'){
 			system("cls");
+			system("color b5");
 			gotoxy(4,3);cout<<"Copy link";
 			gotoxy(8,4);cout<<"|";
 			gotoxy(8,5);cout<<"|";
