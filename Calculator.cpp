@@ -321,19 +321,17 @@ void Game2(){
 	system("cls");
 	system("color f6");
 	srand(time(NULL));
-	int so1,so2,dau,kq,diem;
+	int so1,so2,dau,kq,diem=0;
+	int NN;
 	char d;
 	gotoxy(5,1);cout<<"Score:";
 	for(int i=0;;i++){
-		so1=rand()%2001-1000;so2=rand()%2001-1000;dau=rand()%2;
+		so1=rand()%2001-1000;so2=rand()%2001-1000;dau=rand()%2;NN=rand()%5+1;
 		if(dau==0)d='+';
 		else d='-';
 		gotoxy(12,1);cout<<i;
-		gotoxy(2,2);cout<<so1;
-		gotoxy(2,3);cout<<d;gotoxy(8,3);cout<<"=";
-		gotoxy(2,4);cout<<so2;
-		gotoxy(10,3);cout<<"        ";
-		gotoxy(10,3);cin>>kq;
+		gotoxy(2,2);cout<<so1<<" "<<d<<" "<<so2<<" =               ";
+		gotoxy(2,2);cout<<so1<<" "<<d<<" "<<so2<<" = ";cin>>kq;
 		if(d=='+'){if(kq!=so1+so2){diem=i;break;}}
 		else if(d=='-'){if(kq!=so1-so2){diem=i;break;}}
 	}
@@ -385,7 +383,7 @@ int main(){
 			gotoxy(8,5);cout<<"|";
 			gotoxy(8,6);cout<<"|";
 			gotoxy(8,7);cout<<"V";
-			gotoxy(1,8);cout<<"https://github.com/HuongHackerDepTrai/HuongHackerDepTrai/blob/main/main.cpp";
+			gotoxy(1,8);cout<<"https://github.com/HuongHackerDepTrai/HuongHackerDepTrai/blob/main/Calculator.cpp";
 			gotoxy(4,9);cout<<"App: DEV C/C++    Link download:https://sourceforge.net/projects/orwelldevcpp/";
 			gotoxy(4,10);cout<<"Language: C++";
 			getche();
