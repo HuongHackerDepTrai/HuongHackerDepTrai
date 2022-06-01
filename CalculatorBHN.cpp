@@ -1,104 +1,92 @@
-	#include <iostream>
-	#include <conio.h>
-	#include <time.h>
-	#include <math.h>
-	#include <dos.h> 
-	#include <windows.h>
-	using namespace std;
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD CursorPosition;
-	int enemyY[3];
-	int enemyX[3];
-	int enemyFlag[3];
-	void gotoxy(int x, int y){
-		CursorPosition.X = x;
-		CursorPosition.Y = y;
-		SetConsoleCursorPosition(console, CursorPosition);
-	}
+#include <iostream>
+#include <conio.h>
+#include <time.h>
+#include <math.h>
+#include <dos.h> 
+#include <windows.h>
+using namespace std;
+HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+COORD CursorPosition;
+int enemyY[3];
+int enemyX[3];
+int enemyFlag[3];
+void gotoxy(int x, int y){
+	CursorPosition.X = x;
+	CursorPosition.Y = y;
+	SetConsoleCursorPosition(console, CursorPosition);
+}
 void NormalMath(){
 	system("cls");
 	system("color f1");
 	double so[255],kq,ns[254];
-	gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
 	char dau;
-	int d[254];d[0]==43;
+	int d[254];
 	gotoxy(40,1);cout<<"   y_";
 	gotoxy(40,2);cout<<"V: Vx";
 	gotoxy(40,3);cout<<"^: x^y";
-	gotoxy(40,4);cout<<"C: cos(x)";
-	gotoxy(40,5);cout<<"S: sin(x)";
-	gotoxy(40,6);cout<<"T: tan(x)";
-	gotoxy(40,7);cout<<"L: log(x)";
-	gotoxy(40,8);cout<<"|: |x|";
-	gotoxy(40,9);cout<<"!: x!";
-   gotoxy(40,10);cout<<"n: PI";
-   gotoxy(40,11);cout<<"e: e";
-   gotoxy(40,12);cout<<"%: x%";
+//	gotoxy(40,4);cout<<"C: cos(x)";
+//	gotoxy(40,5);cout<<"S: sin(x)";
+//	gotoxy(40,6);cout<<"T: tan(x)";
+//	gotoxy(40,7);cout<<"L: log(x)";
+//	gotoxy(40,4);cout<<"|: |x|";
+	gotoxy(40,4);cout<<"!: x!";
+//   gotoxy(40,10);cout<<"n: PI";
+//   gotoxy(40,11);cout<<"e: e";
+//   gotoxy(40,6);cout<<"%: x%";
 	gotoxy(3,1);cout<<"X [1] = ";cin>>so[0];kq=so[0];
 	for(int i=1;i<255;i++)
 	{
 		gotoxy(3,2);cout<<"   ";
 		gotoxy(3,2);cin>>dau;d[i-1]=dau;
-		if(dau=='+')	 {gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];}
-		else if(dau=='-'){gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];}
-		else if(dau=='*'){gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];}
-		else if(dau=='/'){gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];}
+		if(dau=='+'||dau=='-'||dau=='*'||dau=='/'){gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];}
 		else if(dau=='^'){
 			i--;int somu;gotoxy(3,3);cin>>somu;gotoxy(3,3);cout<<"   ";
 			so[i]=pow(so[i],somu);
 		}
 		else if(dau=='V'||dau=='v'){
-			i--;int bac;gotoxy(3,3);cin>>bac;gotoxy(3,3);cout<<"   ";bac=1/bac;
+			i--;float bac;gotoxy(3,3);cin>>bac;gotoxy(3,3);cout<<"   ";bac=1/bac;
 			so[i]=pow(so[i],bac);
-		}
-		else if(dau=='L'||dau=='l'){
-			i--;
-			so[i]=log(so[i]);
-		}
-		else if(dau=='C'||dau=='c'){
-			i--;
-			so[i]=cos(so[i]);
-		}
-		else if(dau=='S'||dau=='s'){
-			i--;
-			so[i]=sin(so[i]);
-		}
-		else if(dau=='T'||dau=='t'){
-			i--;
-			so[i]=tan(so[i]);
-		}
-		else if(dau=='|'){
-			i--;
-			so[i]=abs(so[i]);
 		}
 		else if(dau=='!'){
 			i--;int h=so[i];
 			for(int j=1;j<h;j++)so[i]=so[i]*j;
 		}
-		else if(dau=='n'||dau=='N'){
-			i--;
-			so[i]=M_PI;
-		}
-		else if(dau=='e'||dau=='E'){
-			i--;
-			so[i]=M_E;
-		}
-		else if(dau=='%'){
-			i--;
-			so[i]=so[i]/100;
-		}
 		else if(dau=='='){
 			kq=so[0];
-			for(int j=0;j<i-1;j++){
-				if(d[j]==43)kq=kq+so[i+1];
-				else if(d[j]==45)kq=kq-so[i+1];
-				else if(d[j]==42)kq=kq*so[i+1];
-				else if(d[j]==47)kq=kq/so[i+1];
+			for(int j=0;j<i;j++){
+				if(d[j]==43)kq=kq+so[j+1];
+				if(d[j]==45)kq=kq-so[j+1];
+				if(d[j]==42)kq=kq*so[j+1];
+				if(d[j]==47)kq=kq/so[j+1];
 			}
 			gotoxy(5,2);cout<<kq;
 			getche();
 			break;
 		}
+//		else if(dau=='L'||dau=='l'){
+//			i--;
+//			so[i]=log(so[i]);
+//		}
+//		else if(dau=='C'||dau=='c'){
+//			i--;
+//			so[i]=cos(so[i]);
+//		}
+//		else if(dau=='S'||dau=='s'){
+//			i--;
+//			so[i]=sin(so[i]);
+//		}
+//		else if(dau=='T'||dau=='t'){
+//			i--;
+//			so[i]=tan(so[i]);
+//		}
+//		else if(dau=='|'){
+//			i--;
+//			so[i]=abs(so[i]);
+//		}
+//		else if(dau=='%'){
+//			i--;
+//			so[i]=so[i]/100;
+//		}
 	}
 }
 void TTPhanSo(){	
@@ -164,12 +152,13 @@ void PhuongTrinhBac2(){
     cout<<"Import a: ";cin>>a;
     cout<<"Import b: ";cin>>b;
     cout<<"Import c: ";cin>>c;
-    delta=pow(b,2)-(2*a*c);
-    cout<<"Delta = b\253 - 4ac = "<<delta<<endl;
+    delta=pow(b,2)-(4*a*c);
+    cout<<"         2\n";
+    cout<<"Delta = b - 4ac = "<<delta<<endl;
     if(a==0)cout<<"The equation has a solution: x = "<<-c/b;
     else
     {
-        cout<<"  2                2\n";
+        cout<<"  2               2\n";
         cout<<"ax  + bx + c = "<<a<<"x   ";
         if(b<0)cout<<"- "<<abs(b)<<"x ";
         else cout<<"+ "<<b<<"x ";
