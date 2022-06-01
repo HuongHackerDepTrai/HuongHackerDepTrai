@@ -22,7 +22,7 @@ void NormalMath(){
 	gotoxy(0,5);cout<<"±--±--±--±--±--±--±--±--±--±--±--±";
 	char dau,sl=0;
 	int d[254];
-	gotoxy(40,2);cout<<"   y_";
+	gotoxy(40,1);cout<<"   y_";
 	gotoxy(40,2);cout<<"V: Vx";
 	gotoxy(40,3);cout<<"^: x^y";
 	gotoxy(40,4);cout<<"C: cos(x)";
@@ -45,10 +45,11 @@ void NormalMath(){
 		else if(dau=='/'){gotoxy(11,1);cout<<"            ";gotoxy(6,1);cout<<i+1<<"] = ";cin>>so[i];kq=kq/so[i];}
 		else if(dau=='^'){int somu;gotoxy(3,3);cin>>somu;i--;gotoxy(3,3);cout<<"   ";so[i]=pow(so[i],somu);}
 		else if(dau=='V'||dau=='v'){
-			i--;
-			so[i]=sqrt(so[i]);
+			i--;int bac;
+			gotoxy(4,2);cin>>bac;
+			so[i]=pow(so[i],1/bac);
 		}
-		else if(dau=='L'||dau=='L'){
+		else if(dau=='L'||dau=='l'){
 			i--;
 			so[i]=log(so[i]);
 		}
