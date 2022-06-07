@@ -1,20 +1,20 @@
-#include <iostream>
-#include <conio.h>
-#include <time.h>
-#include <math.h>
-#include <dos.h> 
-#include <windows.h>
-using namespace std;
-HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-COORD CursorPosition;
-int enemyY[3];
-int enemyX[3];
-int enemyFlag[3];
-void gotoxy(int x, int y){
-	CursorPosition.X = x;
-	CursorPosition.Y = y;
-	SetConsoleCursorPosition(console, CursorPosition);
-}
+	#include <iostream>
+	#include <conio.h>
+	#include <time.h>
+	#include <math.h>
+	#include <dos.h> 
+	#include <windows.h>
+	using namespace std;
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD CursorPosition;
+	int enemyY[3];
+	int enemyX[3];
+	int enemyFlag[3];
+	void gotoxy(int x, int y){
+		CursorPosition.X = x;
+		CursorPosition.Y = y;
+		SetConsoleCursorPosition(console, CursorPosition);
+	}
 void NormalMath(){
 	system("cls");
 	system("color f1");
@@ -134,7 +134,7 @@ void TTPhanSo(){
 		}
 		else if(dau=='=')
 		{
-			for(int j=(TT+TM)/2;j>=0;j--){
+			for(int j=(abs(TT)+abs(TM))/2;j>=0;j--){
 				if(TT%j==0&&TM%j==0){TT=TT/j;TM=TM/j;break;}
 			}
 			gotoxy(17,3);cout<<"-------";
