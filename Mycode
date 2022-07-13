@@ -1,0 +1,35 @@
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void NhapMaTran1(int **&M,int n);
+void XuatMaTran1(int **M,int n);
+int main(int argc, char** argv) {
+	int **M;
+	int n;
+	cout<<"Nhap n: ";cin>>n;
+	NhapMaTran1(M,n);
+	cout<<"Ma tran cua ban:\n";
+	XuatMaTran1(M,n);
+	return 0;
+}
+void NhapMaTran1(int **&M,int n){
+	srand(time(NULL));
+	M=new int*[n];
+	for(int i=0;i<n;i++)
+		*(M+i)=new int[n];
+	for(int i=0;i<n;i++){
+		for(int j=0;i<n;j++){
+			*(*(M+i)+j)=rand()%150-49;
+		}
+	}
+}
+void XuatMaTran1(int **M,int n){
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			cout<<*(*(M+i)+j)<<"\t";
+		}
+		cout<<endl;
+	}
+}
